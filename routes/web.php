@@ -1,8 +1,11 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Site\SiteController;
 use App\Http\Controllers\Admin\NeewController;
+use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ProcesController;
@@ -10,7 +13,7 @@ use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\TestimonialController;
 
 
-Route::prefix('admin')->name('admin.')->group(function(){
+Route::prefix('admin')->name('admin.')->middleware('auth','chackAdmin')->group(function(){
 
     Route::get('/',[AdminController::class ,'index'])->name('index');
 
@@ -38,6 +41,12 @@ Route::prefix('admin')->name('admin.')->group(function(){
     Route::get('projects/{id}/restore',[ProjectController::class ,'restore'])->name('projects.restore');
     Route::delete('projects/{id}/forcedelete',[ProjectController::class ,'forcedelete'])->name('projects.forcedelete');
     Route::resource('projects',ProjectController::class);
+
+
+    Route::resource('roles',RoleController::class);
+    Route::resource('users',UserController::class);
+
+
 });
 
 
@@ -49,3 +58,7 @@ Route::get('/project',[SiteController::class,'project'])->name('site.project');
 Route::get('/contact',[SiteController::class,'contact'])->name('site.contact');
 Route::post('/contact-data',[SiteController::class,'contact_data'])->name('site.contact_data');
 Route::get('/single-project/{id}',[SiteController::class,'single_project'])->name('site.single_project');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

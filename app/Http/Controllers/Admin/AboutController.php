@@ -8,6 +8,14 @@ use Illuminate\Http\Request;
 
 class AboutController extends Controller
 {
+    function __construct()
+    {
+         $this->middleware('permission:about-list|about-create|about-edit|about-delete', ['only' => ['index','store']]);
+         $this->middleware('permission:about-create', ['only' => ['create','store']]);
+         $this->middleware('permission:about-edit', ['only' => ['edit','update']]);
+         $this->middleware('permission:about-delete', ['only' => ['destroy']]);
+    }
+
     /**
      * Display a listing of the resource.
      *

@@ -9,6 +9,13 @@ use Illuminate\Support\Facades\File;
 
 class ProcesController extends Controller
 {
+    function __construct()
+    {
+         $this->middleware('permission:proces-list|proces-create|proces-edit|proces-delete', ['only' => ['index','store']]);
+         $this->middleware('permission:proces-create', ['only' => ['create','store']]);
+         $this->middleware('permission:proces-edit', ['only' => ['edit','update']]);
+         $this->middleware('permission:proces-delete', ['only' => ['destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *

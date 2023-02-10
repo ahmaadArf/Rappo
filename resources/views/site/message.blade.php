@@ -13,11 +13,12 @@
         <p>Hope this email find you will</p>
         <br>
         <p>There is new contact message with this information:</p>
-        <p><b>Name:</b> <span style="color: rgb(48, 48, 48)">{{ $data['name'] }}</span></p>
+        {{-- <p><b>Name:</b> <span style="color: rgb(48, 48, 48)">{{ $data['name'] }}</span></p>
         <p><b>Email:</b> <span style="color: rgb(48, 48, 48)"> {{ $data['email'] }}</span> </p>
         <p><b>Subject:</b> <span style="color: rgb(48, 48, 48)"> {{ $data['subject'] }}</span> </p>
         <p><b>Phone:</b> <span style="color: rgb(48, 48, 48)"> {{ $data['phone'] }}</span> </p>
-        <p><b>Message:</b> <span style="color: rgb(48, 48, 48)"> {{ $data['message'] }}</span> </p>
+        <p><b>Message:</b> s<span style="color: rgb(48, 48, 48)"> {{ $data['message'] }}</span> </p> --}}
+        <p><b>Message:</b> s<span style="color: rgb(48, 48, 48)">basher</span> </p> --}}
 
         <br>
         <p>Best Regards</p>

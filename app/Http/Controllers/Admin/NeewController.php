@@ -9,6 +9,13 @@ use Illuminate\Support\Facades\File;
 
 class NeewController extends Controller
 {
+    function __construct()
+    {
+         $this->middleware('permission:neew-list|neew-create|neew-edit|neew-delete', ['only' => ['index','store']]);
+         $this->middleware('permission:neew-create', ['only' => ['create','store']]);
+         $this->middleware('permission:neew-edit', ['only' => ['edit','update']]);
+         $this->middleware('permission:neew-delete', ['only' => ['destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *

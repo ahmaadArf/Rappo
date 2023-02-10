@@ -77,7 +77,7 @@ class SiteController extends Controller
         ]);
         $data=$request->except('_token','submit');
 
-        Mail::to('taifjamal08@gmail.com')->send(new Contact($data));
+        Mail::to('bassharr.2004@gmail.com')->send(new Contact($data));
     }
 
 
