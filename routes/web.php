@@ -17,6 +17,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth','chackAdmin')->group(f
 
     Route::get('/',[AdminController::class ,'index'])->name('index');
 
+
     Route::get('abouts/trash',[AboutController::class ,'trash'])->name('abouts.trash');
     Route::get('abouts/{id}/restore',[AboutController::class ,'restore'])->name('abouts.restore');
     Route::delete('abouts/{id}/forcedelete',[AboutController::class ,'forcedelete'])->name('abouts.forcedelete');
